@@ -40,3 +40,14 @@ pre code {
   padding: 10px;
   margin-top: -10px;
 }
+
+td {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+thead {
+  font-weight: bold;
+}
