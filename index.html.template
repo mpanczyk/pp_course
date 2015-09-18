@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset='utf-8'>
+  <title>Podstawy programowania</title>
+  <link href="style.css" media="screen" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="main_div">
+%(content)s
+  </div>
+</body>

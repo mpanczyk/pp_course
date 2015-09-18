@@ -1,0 +1,155 @@
+Tydzień 2
+=====================
+
+Pętla `while`, czyli "dopóki"
+---------------------
+
+    while(Warunek_logiczny){
+      // ciało pętli czyli
+      // instrukcje;
+    }
+
+Zasada działania:
+
+1. obliczenie `Warunek_logiczny`,
+2. jeśli fałsz, przejście poza pętlę (za końcowy nawias klamrowy),
+3. jeśli prawda, wejście do wnętrza pętli i wykonanie wszystkich
+   instrukcji,
+4. skok na początek pętli, czyli do punktu 1.
+
+Zadania
+---------------------
+
+1.  Napisz program, który wczyta liczbę całkowitą (dodatnią) `n`,
+    a następnie wypisze wszystkie liczby całkowite od `n` do `1` włącznie.
+
+2.  Zmodyfikuj program ze wcześniejszego zadania tak,
+    aby zamiast wypisywać liczby, sumował je i na końcu wypisał
+    ostateczny wynik.
+
+3.  Napisz program, który dla wczytanej liczby naturalnej wypisze
+    jej silnię.
+    Zastanów się, jaką wartością zainicjować zmienną przechowującą
+    iloczyn.
+
+4.  Napisz program, który wczytuje liczbę naturalną `n` i wypisuje jej
+    zapis binarny, ale w odwrotnej kolejności.
+    Na przykład:
+
+    ./a.out
+    10
+    0101
+
+5.	Napisz program, który wczytuje liczbę naturalną `n`
+    i wypisuje na ekran (standardowe wyjście) wszystkie dodatnie dzielniki
+    liczby `n`.
+
+6.	Napisz program, który wczytuje liczbę naturalną `n`
+    i wypisuje komunikat mówiący, czy liczba jest pierwsza, czy nie.
+
+7.  Napisz program, który wczytuje liczbę naturalną `n`
+    i wypisuje wszystkie liczby pierwsze z zakresu od `n` do `2`.
+
+8.	Napisz program, który wczyta liczbę naturalną `n`
+    i wypisze jej rozkład na czynniki pierwsze. Na przykład:
+
+        ./a.out
+        24
+        2 2 2 3
+
+Kilka nowych operatorów
+---------------------
+
+Często instrukcja przypisania służy do ustalenia wartości zmiennej na
+podstawie dotychczasowej jej wartości: `x = x+zwiekszenie`,
+`licznik=licznik/2`.
+W takich przypadkach można skrócić zapis za pomocą następujących
+operatorów:
+
+  * `+=`, np. `x += zwiekszenie`,
+  * `-=`,
+  * `*=`,
+  * `/=`, np. `licznik /= 2`.
+
+W szczególności, jeśli zwiększamy lub zmniejszamy zmienną o `1`,
+możemy użyć operatorów `++` i `--`:
+
+  * `x++` --- operator postinkrementacji: wartością wyrażenia jest wartość
+    zmiennej przed zwiększeniem,
+  * `++x` --- operator preinkrementacji: wartością wyrażenia jest wartość
+    zmiennej po zwiększeniu,
+  * `x--` --- operator postdekrementacji --- analogicznie do `x++`,
+  * `--x` --- operator predekrementacji --- jak wyżej.
+
+Przykład --- sprawdź, jaki wynik da uruchomienie programu:
+
+    #include <stdio.h>
+
+    int main(){
+      int x = 10;
+      printf("%d\n", ++x);
+      printf("%d\n", x);
+
+      x = 10;
+      printf("%d\n", x++);
+      printf("%d\n", x);
+
+      return 0;
+    }
+
+Pętla `for`
+---------------------
+Pętla `for` ma postać:
+
+    for( instrukcja_inicjująca; warunek; instrukcja_przejścia ){
+      // ciało pętli czyli
+      // instrukcje;
+    }
+
+Zasada działania:
+
+  1.  wykonuje się `instrukcja_inicjująca`,
+  2.  sprawdzany jest `warunek`,
+  3.  jeśli fałsz, przejście poza pętlę,
+  4.  jeśli prawda, wykonanie instrukcji wewnątrz pętli,
+  5.  wykonanie `instrukcja_przejścia`,
+  6.  przejście do punktu 2.
+
+Zwróć uwagę, że w nawiasach okrągłych występują dokładnie dwa znaki `;`.
+Elementy w nawiasach (`instrukcja_inicjująca`, `warunek` i
+`instrukcja_przejścia`) można pominąć.
+Jeśli pominiemy `warunek`, za każdym razem
+podejmowana jest decyzja o wejściu do wnętrza pętli
+--- czyli tak, jakby wstawić tam warunek zawsze prawdziwy.
+Uzyskamy w ten sposób _wieczną pętlę_.
+
+Zadania
+---------------------
+
+1.  Wybierz 3 zadania z zadań dotyczących pętli `while`
+		i rozwiąż je używając pętli `for`.
+
+2.  Napisz program, który wypisze na ekranie tabliczkę mnożenia o
+		wymiarach 5 x 5:
+
+        ./a.out
+        1  2  3  4  5
+        2  4  6  8 10
+        3  6  9 12 15
+        4  8 12 16 20
+        5 10 15 20 25
+
+3.  Zmodyfikuj poprzedni program tak, aby pytał użytkownika o rozmiar
+		tabliczki mnożenia.
+
+Modyfikatory wejścia/wyjścia --- uzupełnienie
+---------------------
+Aby ustalić rozmiar pola do wypisywania wartości liczbowych,
+można użyć rozszerzonej składni modyfikatorów wejścia/wyjścia:
+
+* `%5d` --- spowoduje wypisanie liczby w polu o rozmiarze 5 znaków.
+  Ewentualne wolne miejsca zostaną uzupełnione spacjami z lewej strony.
+* `%07d` --- miejsca z lewej strony zamiast spacji, będą uzupełnione zerami.
+* `%.3f` --- wypisanie liczby zmiennoprzecinkowej z 3 miejscami po przecinku.
+* `%5.1f` --- wypisanie liczby zmiennoprzecinkowej na polu 5-znakowym, 1
+  miejsce po przecinku.

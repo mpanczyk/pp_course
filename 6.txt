@@ -1,0 +1,78 @@
+Tablice jednowymiarowe
+==========================
+
+Tablica to zmienna, której wartością jest
+sekwencja wartości jednakowego typu.
+Na przykład:
+
+    int tablica[4];
+
+Powyżej została zadeklarowana 4-elementowa tablica
+elementów typu `int`.
+Możliwe jest utworzenie elementów dowolnego typu:
+
+    unsigned long long int tablica_ulli[1000];
+    signed short int tablica_ssi[300];
+    float tablica_f[3];
+
+Możliwe jest zainicjowanie elementów tablicy
+wartościami w momencie jej deklarowania:
+
+    int tab[3] = {1, 2, 3};
+    float tab_f[] = {
+      1.41421356237309504880,
+      2.71828182845904523536,
+      3.14159265358979323844,
+      0.31830988618379067154,
+      2.50662827463100050240,
+    };
+
+W drugim przypadku (powyżej) kompilator policzy 
+liczbę elementów tablicy.
+
+Indeksowanie tablic
+--------------------------
+Elementy tablicy indeksujemy od `0` do `n-1`,
+gdzie `n` to rozmiar tablicy.
+Wszystkie inne indeksy (mniejsze, niż zero oraz
+większe od n-1) są nieprawidłowe ---
+ich użycie może powodować nieprzewidziane skutki
+podczas działania programu.
+Należy bardzo uważać podczas ustalania pierwszego
+i ostatniego poprawnego indeksu tablicy,
+szczególnie podczas dostępu do jej elementów
+w pętli.
+
+Typowy kod, którzy przegląda każdy element tablicy:
+
+    int i;
+    for(i=0; i < rozmiar_tablicy; ++i){
+      // działanie na i-tym elemencie tablicy, np.:
+      tab[i] = 0; // zerowanie
+    }
+
+Zadania
+--------------------------
+1. Napisz program, który wczyta do 5-elementowej tablicy
+   liczb całkowitych wszystkie wartości od użytkownika
+   i wypisze je na ekran.
+
+2. Zmodyfikuj poprzedni program tak, aby wypisywał elementy
+   tablicy od ostatniego do pierwszego.
+
+3. Napisz program, który wczyta do 5-elementowej tablicy
+   liczb zmiennoprzecinkowych wszystkie wartości od użytkownika
+   i wypisze na ekran ich sumę oraz średnią arytmetyczną.
+
+4. Napisz program, który wczyta do 5-elementowej tablicy
+   liczb zmiennoprzecinkowych wszystkie wartości od użytkownika
+   i wypisze na ekran ich minimum oraz maksimum.
+
+5. Napisz program, który wczyta do 5-elementowej tablicy
+   liczb całkowitych wszystkie wartości od użytkownika
+   i wypisze wszystkie elementy parzyste a następnie nieparzyste.
+
+6. Napisz program, który wczyta do 5-elementowej tablicy
+   liczb całkowitych wszystkie wartości od użytkownika
+   i wypisze wszystkie elementy o indeksach parzystych
+   a następnie nieparzystych.

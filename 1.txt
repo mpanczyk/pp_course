@@ -1,0 +1,265 @@
+Tydzień 1
+=====================
+
+Wprowadzenie
+---------------------
+Pytania wstępne:
+
+1. co to jest program komputerowy?
+2. czym jest instrukcja?
+3. czym jest wyrażenie?
+4. jaką funkcję pełni kompilator?
+
+
+Pierwszy program
+---------------------
+
+    #include <stdio.h>
+
+    int main() {
+      printf("Hello World!\n");
+      return 0;
+    }
+
+Przeanalizuj powyższy program.
+Zwróć uwagę na wszystkie _znaki interpunkcyjne_:
+średnik występuje po każdej instrukcji ---
+co nie znaczy, że na końcu każdej linii.
+
+Program kompilujemy za pomocą kompilatora `gcc`:
+
+    gcc program.c
+
+Jeśli na ekranie nie pojawiły się żadne komunikaty,
+czyli nie było błędów ani ostrzeżeń, to znaczy,
+że wszystko przebiegło pomyślnie.
+Teraz możemy uruchomić program w następujący sposób:
+
+    ./a.out
+
+Na ekranie powinniśmy otrzymać napis `Hello World`.
+
+### Porada ###
+Wygodnie jest, wpisując nawiasy i cudzysłowy, wpisywać od razu odpowiednio
+nawias lub cudzysłów zamykający, a następnie przejść do wypełniania
+wnętrza. Chroni to przed zapomnieniem wpisania zamknięcia, gdybyśmy
+najpierw wypełniali wnętrze.
+
+Pojęcie zmiennej, deklaracja zmiennej i wczytywanie wartości od użytkownika
+---------------------
+
+Zmienna to pojemnik, który umożliwia przechowanie wartości określonego typu.
+Typ to na przykład: liczba całkowita (`int`), liczba zmiennoprzecinkowa
+(`float`, `double`) --- więcej typów poznamy później.
+Z drugiej strony zmienna to wydzielone miejsce w pamięci operacyjnej
+o określonym rozmiarze i położeniu.
+
+    #include <stdio.h>
+
+    int main() {
+      int zm1;
+      int zm2;
+      // jaka jest wartość zmiennych w tym momencie?
+
+      scanf("%d", &zm1);
+      printf("Wartość zmiennej zm1 to %d.\n", zm1);
+
+      zm2 = 5;
+      printf("Wartość zmiennej zm2 to %d.\n", zm2);
+
+      printf("Iloczyn wpisanych wartości to %d.\n", zm1*zm2);
+
+      return 0;
+    }
+
+Przeanalizuj powyższy program.
+Zastanów się nad pytaniem zawartym w komentarzu w programie.
+
+Do wczytywania i wypisywania wartości całkowitych używamy specyfikatora `%d`,
+natomiast dla wartości zmiennoprzecinkowych mamy `%f` (dla `float`) oraz
+`%lf` (dla `double`).
+
+### Uwaga ###
+Zwróć uwagę, że przy wczytywaniu wartości za pomocą funkcji `scanf`,
+zmienne poprzedzamy znakiem `&` --- ale pamiętaj, żeby nie dodać tego znaku
+przy wypisywaniu za pomocą `printf`.
+
+Operator przypisania
+---------------------
+Aby nadać zmiennej wartość, używamy operatora przypisania:
+
+    zmienna = wyrażenie;
+    l_wartość = wyrażenie;
+
+W przykładzie powyżej występuje `l_wartość`,
+czyli uogólnienie zmiennej na wszystko, do czego można przypisać wartość.
+Nazwę łatwo skojarzyć z faktem, że `l_wartość` występuje po lewej stronie
+przypisania.
+Przykład l_wartości, która nie jest zmienną, poznamy w późniejszym
+terminie.
+
+Instrukcja przypisania działa w następujący sposób:
+
+1.  obliczana jest wartość wyrażenia po prawej stronie znaku `=`,
+2.  obliczona wartość jest nadawana l_wartości.
+
+Dlatego w pełni poprawną instrukcją jest `x = x+1;` zwiększająca wartość
+zmiennej `x` o 1 lub `a = a/2;` zmniejszająca wartość zmiennej `a`
+dwukrotnie.
+
+Działania na liczbach całkowitych i zmiennoprzecinkowych
+---------------------
+
+Jeśli wykonujemy działania na dwóch wartościach całkowitych,
+wynik również jest całkowity.
+Odnosi się to również do dzielenia,
+dlatego w języku C wyrażenie `7/2` ma wartość `3`.
+Aby otrzymać wartość zmiennoprzecinkową, czyli w przykładzie powyżej:
+`3.5`, można wykorzystać sposoby jak w poniższym programie (sprawdź, które
+działają):
+
+    #include <stdio.h>
+
+    int main() {
+      int a = 7, b = 2;
+      float fa, wynik;
+
+      wynik = a/b;
+      printf("%f\n", wynik);
+
+      fa = a;
+      wynik = fa/b;
+      printf("%f\n", wynik);
+
+      printf("%f\n", 1.0*a/b);
+      printf("%f\n", (float)a/b);
+
+      printf("%f\n", (float)(a/b));
+      printf("%f\n", 1.0*(a/b));
+
+      return 0;
+    }
+
+Zadania
+---------------------
+
+1.  Napisz program, który wczyta dwie liczby całkowite: długość podstawy i
+    wysokość trójkąta i wypisze na ekran pole tego trójkąta.
+    Zwróć uwagę, że pole nie musi być liczbą całkowitą.
+
+2.  Zmodyfikuj program z poprzedniego zadania tak, aby wczytywał liczby
+    zmiennoprzecinkowe.
+
+3.  Zmodyfikuj program z poprzedniego zadania tak, aby wczytywał liczby
+    zmiennoprzecinkowe będące długościami boków trójkąta i nadal wypisywał
+    pole trójkąta. Skorzystaj ze [wzoru Herona][wzor_herona_link].
+
+    Aby obliczyć pierwiastek kwadratowy, wykorzystaj funkcję `sqrt`.
+    Musisz dodać na początku programu linię `#include <math.h>`,
+    a podczas kompilacji dodać opcję `-lm`, np.:
+
+        gcc pole_trojka.c -lm
+
+
+[wzor_herona_link]: http://pl.wikipedia.org/wiki/Wzór_Herona
+
+Instrukcja `if`
+---------------------
+Do tej pory pisaliśmy programy, które wykonywały wszystkie wpisane
+instrukcje od początku do końca.
+Często jednak to, czy wykonać pewną instrukcję lub grupę instrukcji
+zależy od pewnych warunków.
+Do tego celu wykorzystujemy instrukcję warunkową --- `if`:
+
+    if(Warunek_logiczny){
+      // instrukcje, które się wykonują,
+      // jeżeli Warunek_logiczny okazał się prawdziwy (jest spełniony)
+    } else {
+      // instrukcje, które się wykonują,
+      // jeżeli Warunek_logiczny okazał się nieprawdziwy (nie jest spełniony)
+    }
+
+`Warunek_logiczny` to wyrażenie, które przyjmuje dwa rodzaje wartości:
+
+  * `0`, które oznacza niespełnienie warunku, inaczej mówiąc: _fałsz_,
+  * cokolwiek różnego od `0` --- spełnienie warunku, inaczej: _prawda_.
+    Zwróć uwagę, że liczby ujemne są różne od zera, więc również uznawane
+    są za wyrażenie prawdziwe.
+
+Przy tej okazji wprowadźmy pojęcie _bloku kodu_: jest to lista instrukcji
+zawartych w nawiasach klamrowych (`{` i `}`).
+Zatem w powyższym fragmencie kodu są dwa bloki.
+
+Jeśli nie ma instrukcji, które miałyby się wykonać, gdy warunek jest
+niespełniony, czyli blok kodu po `else` byłby pusty,
+można opuścić (i tak się robi niemal zawsze) słowo `else` i nawiasy klamrowe za nim:
+
+    if(Warunek_logiczny){
+      // instrukcje, które się wykonują,
+      // jeżeli Warunek_logiczny okazał się prawdziwy (jest spełniony)
+    }
+
+Dodatkowo, jeśli blok kodu składa się tylko z jednej instrukcji,
+można zrezygnować z otaczania jej nawiasami klamrowymi
+(chociaż nie jest to zalecane):
+
+    if(Warunek_logiczny)
+      jedna_instrukcja;
+    else
+      druga_instrukcja;
+
+Pamiętaj, że `Warunek_logiczny` musi być obliczony przez komputer
+(zajmując pewien czas) w trakcie działania programu,
+więc nie warto wprowadzać nadmiarowego sprawdzania
+warunków tam, gdzie wiadomo, że zawsze będą spełnione. Przykład:
+
+    if(liczba < 0){
+      printf("Liczba jest ujemna.\n");
+    } else if(liczba >= 0){
+      printf("Liczba jest nieujemna.\n");
+    }
+W powyższym przykładzie sprawdzenie drugiego warunku jest całkowicie
+zbędne, ponieważ w tym miejscu zawsze okaże się prawdziwy.
+
+### Uwaga ###
+Zwróć uwagę na _wcięcia_ w kodzie --- zwiększają one czytelność,
+dlatego są wymagane. Kod źródłowy jest wielokrotnie częściej czytany,
+niż tworzony, zatem warto poświęcić chwilę na jego czytelne sformatowanie.
+
+Operatory logiczne
+---------------------
+Jako `Warunek_logiczny` często występuje wyrażenie porównujące wielkości
+liczbowe. Stosujemy w tym celu operatory:
+
+  * `==` --- równości,
+  * `!=` --- nierówności,
+  * `>`  --- większości,
+  * `>=` --- słabej większości,
+  * `<`  --- mniejszości,
+  * `<=` --- słabej mniejszości.
+
+### Uwaga ###
+Zwróć uwagę, że operator przypisania `=` nie jest operatorem równości (`==`).
+Podobieństwo to na początku sprawia trudności, jeśli w miejsce `==` użyje
+się `=`. Przykład: jak zadziała poniższy program?
+
+    #include <stdio.h>
+
+    int main() {
+      int a;
+      scanf("%d", &a);
+      if(a=0){
+        print("a jest równe %d.\n", a);
+      }
+      return 0;
+    }
+
+Zadania
+---------------------
+
+1.  Napisz program, który wczyta trzy liczby zmiennoprzecinkowe: `a`, `b`,
+    `c` oznaczające współczynniki w równaniu kwadratowym ax²+bx+c=0.
+    Program ma wypisać liczbę rozwiązań oraz ewentualne rozwiązania równania.
+
+2.  Napisz program, który wczyta liczbę całkowitą i wypisze na ekran
+    komunikat na temat parzystości liczby.

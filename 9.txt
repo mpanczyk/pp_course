@@ -1,0 +1,121 @@
+Wskaźniki
+=========================
+
+    int *wskaznik_int;
+
+Wskaźnik to zmienna, która przechowuje adres
+obszaru pamięci operacyjnej.
+Takim obszarem może być np. inna zmienna:
+
+    int zmienna_int;
+    int *wskaznik_int = &zmienna_int;
+
+Każdy wskaźnik ma określony (w czasie definiowania) typ wartości,
+na jaki wskazuje.
+Dlatego niepoprawny jest poniższy kod:
+
+    int zmienna_int;
+    double *wskaznik_double = &zmienna_int;
+
+
+Wyłuskanie wartości i pobranie adresu zmiennej
+-------------------------
+Jeśli mamy wyrażenie, którego typ to adres w pamięci,
+możemy uzyskać wartość wskazywaną za pomocą operatora wyłuskania `*`:
+
+    *wskaznik
+
+Działanie odwrotne uzyskujemy za pomocą operatora pobrania adresu `&`:
+
+    &zmienna
+
+Możemy pobierać tylko adres *[l-wartości][l_wartosc]*.
+
+[l_wartosc]: http://pl.wikipedia.org/wiki/L-warto%C5%9B%C4%87
+
+
+Arytmetyka wskaźników
+-------------------------
+Mając zdefiniowane poniżej zmienne:
+
+    int a = 5;
+    int tab[3] = {10,20,30};
+    int *pa = &a;
+    int *pt1 = &tab[0];
+    int *pt2 = tab+2; // wyrażenie 'tab' jest adresem tablicy o nazwie tab
+
+Zastanów się, jakie wartości i typy mają poniższe wyrażenia:
+
+    *pa+1
+    *pt1
+    *pt1+1
+    *(pt1+1)
+    *pt2 - *pt1
+    pt2-pt1
+    *(pt2-1)
+
+Warto zapamiętać, że dodanie do adresu wartości 1 daje adres
+przesunięty o **1 element** danego typu, a niekoniecznie o 1 bajt.
+
+
+Wskaźniki na inne typy wartości
+-------------------------
+Możliwe jest zdefiniowanie wskaźnika na wartość dowolnego typu (a nawet na funkcję):
+
+    int a = 5;
+    int *pa = &a;
+    int **ppa = &pa;
+    a == 5;
+    pa == &a;
+    *pa == a;
+    *ppa = pa;
+    **ppa = a;
+
+    int *tp[10]; // tablica 10 wskaźników na int
+    int (*pt)[10]; // wskaźnik na tablicę 10 int
+
+Jeśli w programie często definiujemy jakiś skomplikowany typ,
+warto stworzyć sobie jego alias za pomocą słowa kluczowego `typedef`:
+
+    int (**z[10])[10];
+    typedef int (**t_z[10])[10];
+
+W powyższym przykładzie `z` to [tablica 10 wskaźników na wskaźnik na tablicę 10 int][deklaracja_1],
+natomiast `t_z` jest typem takim, jaki ma zmienna `z`.
+
+Pomocny może się okazać program `cdecl` (dostępny jako pakiet
+w różnych dystrybucjach GNU/Linuksa i np. na [stronie WWW][cdecl_online].
+
+[deklaracja_1]: http://cdecl.ridiculousfish.com/?q=explain+int+%28**z%5B10%5D%29%5B10%5D
+[cdecl_online]: http://cdecl.ridiculousfish.com/
+
+
+Zadania
+-------------------------
+
+1.  Napisz funkcję `int max1(int *a, int *b)`, która zwróci wartość
+    większej spośród wskazywanych przez parametry.
+
+    Rozwiązanie:
+
+        int max1(int *a, int *b){
+          return *a>*b ? *a : *b;
+        }
+
+2.  Napisz funkcję `int * max2(int *a, int *b)`, która zwróci adres
+    większej wskazywanej przez parametry wartości.
+
+    Rozwiązanie:
+
+        int * max2(int *a, int *b){
+          return *a>*b ? a : b;
+        }
+
+3.  Napisz funkcję `int * max3(int *a, int *b)`, która zwraca większy adres
+    przekazywany za pomocą parametrów.
+
+    Rozwiązanie:
+
+        int * max3(int *a, int *b){
+          return a>b ? a : b;
+        }

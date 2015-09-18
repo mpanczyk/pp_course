@@ -1,0 +1,58 @@
+Funkcje rekurencyjne
+==========================
+Funkcja [rekurencyjna][rekurencja] to funkcja, która wywołuje siebie.
+
+[rekurencja]: http://pl.wikipedia.org/wiki/Rekurencja
+
+Zadania
+--------------------------
+
+1.  Napisz rekurencyjną wersję funkcji silnia.
+
+        unsigned int silnia(unsigned int n){
+          if(n==0)
+            return 1;
+          return n*silnia(n-1);
+        }
+
+2.  Napisz rekurencyjną funkcję obliczającą
+    największy wspólny dzielnik dwóch liczb
+    podanych jako parametry.
+
+3.  Napisz rekurencyjną funkcję obliczającą
+    n-ty wyraz ciągu Fibonacciego.
+
+        unsigned int fib(unsigned int n){
+          if(n < 2)
+            return n;
+          return fib(n-2)+fib(n-1);
+        }
+
+4.  Napisz iteracyjną wersję powyższej funkcji.
+    Która wersja jest szybsza?
+
+5.  Co oblicza poniższa funkcja `f`?
+
+        int f(unsigned int a, unsigned int b){
+          if(a)
+            return f(a-1, b+1);
+          return b;
+        }
+
+6.  Napisz iteracyjną i rekurencyjną funkcję
+    obliczającą sumę cyfr podanej liczby nieujemnej.
+
+7.  Napisz funkcję `double potega(double podstawa, int wykladnik)`.
+
+8.  Napisz iteracyjną funkcję obliczającą
+    część całkowitą z pierwiastka kwadratowego podanej liczby `n`.
+
+Co oblicza poniższa funkcja, gdy wywołamy ją w postaci `f(0,1,n)`?
+
+    unsigned long long int f(unsigned long long int a,
+                             unsigned long long int b,
+                             unsigned int przesuniecie){
+      if(przesuniecie == 0)
+        return a;
+      return f(b, a+b, przesuniecie-1);
+    }

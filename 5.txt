@@ -1,0 +1,38 @@
+Zadania
+==========================
+
+1. Napisz funkcję, która dla podanego argumentu n zwraca wartość
+   wyrazu o indeksie n ciągu zdefiniowanego w następujący sposób:
+
+        a(0)    = 1
+        a(2m)   = a(2m-1) + 2a(m)
+        a(2m+1) = a(2m)
+
+2. Napisz rekurencyjną funkcję, która dostaje jako argumenty dwie
+   nieujemne liczby całkowite i zwraca wynik określony w następujący
+   sposób:
+
+        f(x, 0) = x
+        f(0, x) = x
+        f(x, y) = f(x−1, y) + f(x, y−1) dla x, y > 0
+
+3. Napisz iteracyjną funkcję obliczającą całkowitą część logarytmu
+   dziesiętnego podanej jako parametr liczby zmiennoprzecinkowej.
+
+4. Napisz funkcję, która dostaje jako parametry 4 liczby całkowite:
+   `a`, `b`, `c`, `d`. Liczby te reprezentują dwa przedziały domknięte:
+   `[a; b]` i `[c; d]`.
+   Funkcja ma wypisać wszystkie liczby całkowite należące
+   do części wspólnej tych przedziałów.
+
+5. Napisz funkcję, która dostaje jako parametry 4 liczby
+   zmiennoprzecinkowe i traktuje je jako współrzędne 2 punktów na
+   płaszczyźnie. Funkcja ma zwracać odległość między punktami.
+
+6. Napisz funkcję, która przyjmuje 6 liczb zmiennoprzecinkowych,
+   które są współrzędnymi wierzchołków trójkąta na płaszczyźnie.
+   Funkcja ma zwracać pole trójkąta. Wykorzystaj funkcję z zadania 5.
+
+7. Masz do dyspozycji funkcję `max` obliczającą maksimum z dwóch liczb.
+   Spróbuj napisać funkcję `min` obliczającą minimum,
+   ale bez użycia instrukcji `if`, operatora `?:` ani żadnej pętli.

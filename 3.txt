@@ -1,0 +1,204 @@
+Tydzień 3
+=====================================
+
+Operator trójargumentowy `?:`
+-------------------------------------
+
+Operator trójargumentowy o składni
+
+    wyrazenie_logiczne ? wyrazenie_1 : wyrazenie_2
+
+tworzy wyrażenie, którego wartość zależy od `wyrazenie_logiczne`.
+Jeśli jest ono prawdziwe, wartością całego wyrażenia jest `wyrazenie_1`.
+W przeciwnym razie wartością całego wyrażenia jest `wyrazenie_2`.
+Tylko jedno z dwóch ostatnich wyrażeń jest obliczane --- tylko to,
+którego wartość jest brana jako wartość całego wyrażenia.
+
+W poniższym przykładzie zmienna `x` przyjmie wartość `10`:
+
+    x = x > x+1 ? 1 : 10;
+
+
+Instrukcje `break` i `continue`
+------------------------------------
+Porównaj poniższe fragmenty kodu:
+
+    // Przykład 1
+    int i;
+    for(i = 0; i<10; ++i){
+      if( i == 5)
+        continue;
+      printf("%d\n", i);
+    }
+
+    // Przykład 2
+    int i;
+    for(i = 0; i<10; ++i){
+      if( i == 5)
+        break;
+      printf("%d\n", i);
+    }
+
+Instrukcja `case`
+------------------------------------
+
+    switch(wyrazenie) {
+      case stała1:  instrukcje;
+                    break;
+      case stała2:  instrukcje;
+                    break;
+      default:      instrukcje;
+    }
+
+Napisz program, który wczytuje dwie liczby całkowite
+i działa w zależności od wartości pierwszej liczby:
+
+  * `0` --- program nic nie robi;
+  * `1` --- program wypisuje dziesięciokrotność drugiej liczby;
+  * `2` --- program wypisuje cyfrę jedności drugiej liczby;
+  * w pozostałych przypadkach program wypisuje drugą liczbę bez zmian.
+
+Zadania
+------------------------------------
+
+1.  Napisz program, który wczyta dwie liczby i wypisze maksimum ich
+    wartości bezwzględnych.
+
+2.  Napisz program, który wczyta dwie liczby i wypisze wartość
+    bezwzględną ich maksimum.
+
+3.  Napisz program, który wczyta liczbę dodatnią `n` i wypisze,
+    na którym miejscu (licząc od prawej) znajduje się najbardziej znacząca
+    jedynka w zapisie binarnym liczby `n` --- inaczej: długość zapisu
+    binarnego liczby `n`.
+    Na przykład:
+
+        ./a.out
+        7
+        3 // bo 111
+
+        ./a.out
+        8
+        4 // bo 1000
+
+
+Pętla `do-while`
+------------------------------------
+
+    do {
+      instrukcje;
+    } while(warunek);
+
+Zasada działania:
+
+1.  Wykonaj instrukcje wewnątrz pętli;
+2.  Oblicz `warunek`;
+3.  Jeśli `warunek` jest spełniony, skocz do początku pętli (pkt 1);
+4.  W przeciwnym razie opuść pętlę.
+
+Przykład:
+
+    int i = 100;
+    do {
+      printf("%d\n", i);
+      i+=1;
+    } while(i < 10);
+
+    // porównaj z:
+    int i = 100;
+    while(i < 10){
+      printf("%d\n", i);
+      i+=1;
+    }
+
+Funkcje
+------------------------------------
+Funkcja to fragment kodu, który można wielokrotnie wykorzystać poprzez jej
+_wywołanie_ --- już to robiliśmy z funkcjami z biblioteki standardowej.
+
+Definicja funkcji:
+
+    typ_zwracany nazwa_funkcji(lista parametrów){
+      instrukcje;
+      return wartość_zwracana;
+    }
+
+Nagłówek powyżej zdefiniowanej funkcji to `typ_zwracany
+nazwa_funkcji(lista parametrów)`.
+Wypisanie samego nagłówka funkcji bez podania jej definicji (_ciała_
+funkcji) to jej *deklaracja*.
+
+Przykłady funkcji:
+
+    int suma(int a, int b){
+      return a+b;
+    }
+
+    int maximum(int a, int b){
+      if(a>b){
+        return a;
+      } else {
+        return b;
+      }
+    }
+
+    int maximum_inaczej_napisane(int a, int b){
+      if(a>b)
+        return a;
+      return b;
+    }
+
+    int maximum_jeszcze_inaczej(int a, int b){
+      return a>b?a:b;
+    }
+
+    int rok_przestepny(unsigned int rok){
+      if(rok < 1582)
+        return rok % 4 == 0;
+      if(rok % 4 == 0){
+        if(rok % 100 == 0){
+          return rok%400 == 0;
+        } else {
+          return 1;
+        }
+      }
+      return 0;
+    }
+
+Uwagi:
+
+* Funkcji nie powinno się zagnieżdżać.
+* Zmienne zdefiniowane wewnątrz funkcji są w niej lokalne.
+* Funkcja musi być znana kompilatorowi w momencie jej wywołania.
+  Oznacza to, że jej definicja (a przynajmniej deklaracja)
+	ma się pojawić przed funkcją, która jej używa.
+* Parametry funkcji są przekazywane przez wartość ---
+  jeśli podamy funkcji argument, który jest zmienną,
+  wewnątrz funkcji będziemy działać na jej kopii (patrz przykład poniżej).
+* Jeśli funkcja nie musi nic zwracać, zaznaczamy to
+  poprzez słowo kluczowe `void` w miejscu nazwy typu zwracanej wartości.
+
+        void probuj_zmienic(int a){
+          a += 1;
+        }
+
+        int main(){
+          int b = 10;
+          probuj_zmienic(b);
+          printf("%d\n", b);
+          return 0;
+        }
+
+Zadania
+------------------------------------
+1.  Napisz funkcję, która dla podanego parametru `n` typu `int` zwróci
+    silnię z `n`.
+
+2.  Napisz funkcję, która przyjmuje dwe wartości zmiennoprzecinkowe:
+      * długość podstawy trójkąta,
+      * wysokość trójkąta.
+
+    Funkcja ma zwrócić pole trójkąta.
+
+3.  Napisz funkcję, która przyjmuje 3 wymiary prostopadłościanu
+    (wartości zmiennoprzecinkowe) i zwraca jego pole powierzchni.

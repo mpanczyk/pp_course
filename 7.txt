@@ -1,0 +1,78 @@
+Przekazywanie tablic do funkcji
+==========================
+
+Porównaj poniższy program:
+
+    #include <stdio.h>
+
+    void test1(int a){
+      printf("wewnatrz test1: %d\n", a);
+      a = 2*a + 1;
+      printf("wewnatrz test1: %d\n", a);
+    }
+
+    int main(void){
+      int n = 10;
+      printf("wewnatrz main: %d\n", n);
+      test1(n);
+      printf("wewnatrz main: %d\n", n);
+      return 0;
+    }
+
+oraz:
+
+    #include <stdio.h>
+
+    void test2(int tab[]){
+      printf("wewnatrz test2: %d\n", tab[0]);
+      tab[0] = 2*tab[0] + 1;
+      printf("wewnatrz test2: %d\n", tab[0]);
+    }
+
+    int main(void){
+      int t[1];
+      t[0] = 10;
+      printf("wewnatrz main: %d\n", t[0]);
+      test2(t);
+      printf("wewnatrz main: %d\n", t[0]);
+      return 0;
+    }
+
+Zadania
+--------------------------
+
+1.  Napisz funkcję, która przyjmuje jako parametr
+    tablicę liczb całkowitych oraz jej rozmiar.
+    Funkcja ma wypisywać zawartość tablicy na ekran.
+
+2.  Zmodyfikuj funkcję z zad. 1 tak, aby przyjmowała
+    zamiast rozmiaru tablicy dwa indeksy: początkowy i końcowy
+    i wypisywała elementy o indeksach od początkowego
+    do końcowego.
+
+3.  Napisz funkcję, która przyjmuje dwie tablice liczb
+    zmiennoprzecinkowych oraz ich wspólny rozmiar.
+    Funkcja ma przepisać zawartość pierwszej tablicy do drugiej.
+
+4.  Zmodyfikuj funkcję z zad. 3 tak,
+    aby zapisywała elementy w drugiej tablicy w odwrotnej kolejności.
+
+5.  Napisz funkcję, która odwraca kolejność elementów w tablicy
+    (bez użycia tablicy pomocniczej).
+
+6.  Napisz funkcję, która cyklicznie przesuwa w prawo elementy tablicy o zadaną
+    liczbę. Na przykład dla tablicy `{1, 2, 3, 4, 5, 6}` i przesunięcia
+    `2` tablica powinna wyglądać: `{5, 6, 1, 2, 3, 4}`.
+
+7.  Napisz funkcję, która otrzymuje 4 parametry: liczbę naturalną `size`
+    oraz tablice liczb zmiennoprzecinkowych `double`: `tab1`, `tab2` i
+    `tab3` o rozmiarze `size`.
+    Funkcja ma przepisać zawartość tablicy `tab1` do tablicy `tab2`,
+    zawartość `tab2` do `tab3`, natomiast `tab3` do `tab1`.
+
+8.  Napisz funkcję, która przyjmuje 3 tablice typu `int` i liczbę
+    całkowitą `n`. Pierwsza tablica ma rozmiar `2*n`, a dwie pozostałe
+    mają rozmiar `n`.
+    Funkcja ma skopiować wszystkie elementy drugiej tablicy na parzyste
+    miejsca w tablicy pierwszej i wszystkie elementy tablicy trzeciej
+    na nieparzyste miejsca w tablicy pierwszej.
