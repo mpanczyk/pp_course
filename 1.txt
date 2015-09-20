@@ -39,6 +39,8 @@ Teraz możemy uruchomić program w następujący sposób:
 
 Na ekranie powinniśmy otrzymać napis `Hello World`.
 
+<tty-player controls src="hello.ttyrec" poster="npt:52"></tty-player>
+
 ### Porada ###
 Wygodnie jest, wpisując nawiasy i cudzysłowy, wpisywać od razu odpowiednio
 nawias lub cudzysłów zamykający, a następnie przejść do wypełniania
