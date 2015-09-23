@@ -14,12 +14,12 @@ POST_SUBST = {
 }
 INPUT_FILE = sys.argv[1]
 OUTPUT_FILE = sys.argv[2]
-NUM = int(re.search(r'(\d+)\.txt', INPUT_FILE).groups()[0])
+NUM = int(re.search(r'(\d+)\.md', INPUT_FILE).groups()[0])
 
 other_files_links = []
-if os.path.isfile( '%d.txt' % (NUM-1) ):
+if os.path.isfile( '%d.md' % (NUM-1) ):
   other_files_links.append( u'<a href="%d.html">poprzedni temat</a>' % (NUM-1) )
-if os.path.isfile( '%d.txt' % (NUM+1) ):
+if os.path.isfile( '%d.md' % (NUM+1) ):
   other_files_links.append( u'<a href="%d.html">następny temat</a>' % (NUM+1) )
 other_files = u'&nbsp;|&nbsp;'.join(other_files_links)
 

@@ -1,12 +1,12 @@
-SUB_TXT = $(wildcard *.txt)
-SUB_HTML = $(SUB_TXT:.txt=.html)
+SUB_TXT = $(wildcard *.md)
+SUB_HTML = $(SUB_TXT:.md=.html)
 
 all : $(SUB_HTML) index.html
 
-%.html : %.txt template.html transform.py
+%.html : %.md template.html transform.py
 	./transform.py $< $@
 
-index.html : index.html.template index.txt.template make_index.py
+index.html : index.html.template index.md make_index.py
 	./make_index.py
 
 clean:

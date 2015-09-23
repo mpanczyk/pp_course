@@ -5,7 +5,7 @@ import os
 import markdown
 import re
 
-TEMPLATE_FILE = 'index.txt.template'
+TEMPLATE_FILE = 'index.md'
 HTML_TEMPLATE = 'index.html.template'
 OUTPUT_FILE = 'index.html'
 h2re = re.compile(r'<h2>([^<]+)</h2>')
@@ -18,7 +18,7 @@ with open(HTML_TEMPLATE, 'r') as templateFile:
 
 def get_subj_max_num():
   num = 0;
-  while os.path.isfile('%d.txt' % (num+1)):
+  while os.path.isfile('%d.md' % (num+1)):
     num += 1
   return num
 
