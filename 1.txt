@@ -86,6 +86,8 @@ Zwróć uwagę, że przy wczytywaniu wartości za pomocą funkcji `scanf`,
 zmienne poprzedzamy znakiem `&` --- ale pamiętaj, żeby nie dodać tego znaku
 przy wypisywaniu za pomocą `printf`.
 
+<tty-player controls src="kolo.ttyrec" poster="npt:52"></tty-player>
+
 Operator przypisania
 ---------------------
 Aby nadać zmiennej wartość, używamy operatora przypisania:
