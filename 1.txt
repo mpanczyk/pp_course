@@ -44,8 +44,8 @@ Na ekranie powinniśmy otrzymać napis `Hello World`.
 ### Porada ###
 Wygodnie jest, wpisując nawiasy i cudzysłowy, wpisywać od razu odpowiednio
 nawias lub cudzysłów zamykający, a następnie przejść do wypełniania
-wnętrza. Chroni to przed zapomnieniem wpisania zamknięcia, gdybyśmy
-najpierw wypełniali wnętrze.
+wnętrza. Chroni to przed zapomnieniem o wpisaniu znaku zamykającego,
+co się zdarza, gdy najpierw wypełniamy wnętrze.
 
 Pojęcie zmiennej, deklaracja zmiennej i wczytywanie wartości od użytkownika
 ---------------------
