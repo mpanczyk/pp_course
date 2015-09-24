@@ -6,7 +6,7 @@ import os
 import markdown
 import re
 
-TEMPLATE_FILE = 'template.html'
+TEMPLATE_FILE = 'topic.html.template'
 PRE_SUBST = {
 }
 POST_SUBST = {
