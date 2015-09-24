@@ -33,13 +33,14 @@ with open(TEMPLATE_FILE, 'r') as templateFile:
 with open(INPUT_FILE, 'r') as inputFile:
   inputStr = inputFile.read().decode('utf-8')
 
+title = inputStr.split('\n')[0]
 inputStr = apply_subst(inputStr, PRE_SUBST)
 innerHtml = markdown.markdown(inputStr, output_format='xhtml5')
 innerHtml = apply_subst(innerHtml, POST_SUBST)
 outputStr = template % {
   'content': innerHtml,
   'original_doc': INPUT_FILE,
-  'title': 'title',
+  'title': title,
   'other_files': other_files,
 }
 

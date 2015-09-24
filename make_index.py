@@ -23,7 +23,15 @@ def get_subj_max_num():
   return num
 
 def gen_all_subj_links(num):
-  return u'\n'.join(u'  %(n)d.  [Tydzień %(n)d](%(n)d.html)' % {'n':i} for i in range(1, num+1))
+  items = []
+  for i in range(1, num+1):
+    with open('%d.md' % i) as f:
+      title = f.readline().decode('utf-8')
+    items.append(u'  %(n)d. [%(title)s](%(n)d.html)' % {
+      'n': i,
+      'title': title,
+    })
+  return u'\n'.join(items)
 
 max_cnt = get_subj_max_num()
 all_subj_links = gen_all_subj_links( max_cnt )
