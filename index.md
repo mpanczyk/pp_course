@@ -21,12 +21,11 @@ Literatura
 Konsultacje
 ------------------
 
-  * środy, godz. 18:00-19:00
-  * czwartki, godz. 18:00-19:00
-  * piątki, godz. 17:00-19:00
+  * czwartki, godz. 13:00-15:00
+  * piątki, godz. 9:00-11:00
 
 Pokój 522 na V piętrze.  
-Proszę o wcześniejszą wiadomość e-mail.
+Proszę o wcześniejszą wiadomość e-mail (mjpanczyk na gmail.com).
 
 Notka
 ------------------
