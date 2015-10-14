@@ -14,7 +14,9 @@ Literatura
   2.  Wikiksiążka: [Język C](http://pl.wikibooks.org/wiki/C),
   3.  Jacek Krzaczkowski:
       [Zadania z programowania w jezyku C/C++, cz.I](./krzaczkowski_pop.pdf),
-  4.  [Kolokwia](./kolokwia/) z poprzednich lat.
+  4.  [Kolokwia](./kolokwia/) z poprzednich lat,
+  5.  [C FAQ](http://c-faq.com/),
+  6.  [Learn C The Hard Way](http://c.learncodethehardway.org/book/).
 
 [Sylabus](http://syjon.umcs.lublin.pl/metacortex/show/1/16795) przedmiotu.
 
