@@ -11,13 +11,13 @@
 </head>
 
 <body>
-  <div id="header">
-    Zobacz ten dokument jako <a href="%(original_doc)s">czysty tekst</a>.
+  <div class="other_files">
+    %(other_files)s
   </div>
   <div id="main_div">
 %(content)s
   </div>
-  <div id="other_files">
+  <div class="other_files">
     %(other_files)s
   </div>
 </body>

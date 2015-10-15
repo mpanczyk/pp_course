@@ -19,6 +19,7 @@ NUM = int(re.search(r'(\d+)\.md', INPUT_FILE).groups()[0])
 other_files_links = []
 if os.path.isfile( '%d.md' % (NUM-1) ):
   other_files_links.append( u'<a href="%d.html">poprzedni temat</a>' % (NUM-1) )
+other_files_links.append(u'<a href=".">w górę</a>')
 if os.path.isfile( '%d.md' % (NUM+1) ):
   other_files_links.append( u'<a href="%d.html">następny temat</a>' % (NUM+1) )
 other_files = u'&nbsp;|&nbsp;'.join(other_files_links)
@@ -33,7 +34,7 @@ with open(TEMPLATE_FILE, 'r') as templateFile:
 with open(INPUT_FILE, 'r') as inputFile:
   inputStr = inputFile.read().decode('utf-8')
 
-title = inputStr.split('\n')[0]
+title = "%d: %s" %(NUM, inputStr.split('\n')[0])
 inputStr = apply_subst(inputStr, PRE_SUBST)
 innerHtml = markdown.markdown(inputStr, output_format='xhtml5')
 innerHtml = apply_subst(innerHtml, POST_SUBST)
