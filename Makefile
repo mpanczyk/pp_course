@@ -1,4 +1,4 @@
-SUB_TXT = $(wildcard *.md)
+SUB_TXT = $(wildcard [0-9]*.md)
 SUB_HTML = $(SUB_TXT:.md=.html)
 
 all : $(SUB_HTML) index.html
