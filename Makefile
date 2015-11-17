@@ -1,4 +1,4 @@
-SUB_TXT = $(wildcard [0-9]*.md)
+SUB_TXT = $(wildcard topics/[0-9]*.md)
 SUB_HTML = $(SUB_TXT:.md=.html)
 
 all : $(SUB_HTML) index.html
@@ -10,4 +10,4 @@ index.html : index.html.template index.md make_index.py
 	./make_index.py
 
 clean:
-	rm -f *~ *.backup *.html
+	rm -f *~ *.backup *.html topics/*.html

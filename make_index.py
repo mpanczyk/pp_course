@@ -18,16 +18,16 @@ with open(HTML_TEMPLATE, 'r') as templateFile:
 
 def get_subj_max_num():
   num = 0;
-  while os.path.isfile('%d.md' % (num+1)):
+  while os.path.isfile('topics/%d.md' % (num+1)):
     num += 1
   return num
 
 def gen_all_subj_links(num):
   items = []
   for i in range(1, num+1):
-    with open('%d.md' % i) as f:
+    with open('topics/%d.md' % i) as f:
       title = f.readline().decode('utf-8')
-    items.append(u'  %(n)d. [%(title)s](%(n)d.html)' % {
+    items.append(u'  %(n)d. [%(title)s](topics/%(n)d.html)' % {
       'n': i,
       'title': title,
     })
