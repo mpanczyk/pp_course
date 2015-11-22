@@ -3,7 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <title>Podstawy programowania</title>
-  <link href="style.css" media="screen" rel="stylesheet" />
+  <link href="cssjs/style.css" media="screen" rel="stylesheet" />
 </head>
 
 <body>
