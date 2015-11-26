@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb} 
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1cm,bottom=1.5cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium I}
+\date{6 grudnia 2013}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+\begin{enumerate}
+
+
+\item \textbf{(7 pkt)}
+Napisz program, który pobierze od użytkownika 6 liczb zmiennoprzecinkowych będących współrzędnymi ($x$, $y$) trzech punktów na płaszczyźnie.
+Jeżeli leżą one na jednej prostej, program powinien wyświetlić współczynniki $a$, $b$ równania tej prostej w~postaci $y=ax+b$.
+W~przeciwnym razie program powinien wyświetlić komunikat ,,niewspółliniowe''. Żadne dwa punkty nie mają równej współrzędnej~$x$.
+
+ \item \textbf{(7 pkt)}
+Napisz rekurencyjną funkcję, która dla podanych $k$ i~$n$ oblicza $k$-ty wyraz ciągu danego wzorem:
+$$
+\begin{cases}
+  c_{0} & = n \\
+  c_{k} & = \frac{c_{k-1}}{2} \mbox{ dla } c_{k-1} \mbox{ parzystego} \\
+  c_{k} & = 3 \cdot c_{k-1}+1 \mbox{ dla } c_{k-1} \mbox{ nieparzystego.}
+\end{cases}
+$$
+Napisz program, który wczytuje od~użytkownika liczbę $n$ i~$k$, a~następnie oblicza $k$-ty wyraz ciągu $(c_k)$ i~go wyświetla.
+Nie można używać zmiennych globalnych.
+
+ \item \textbf{(8 pkt)}
+Deweloper buduje osiedle mieszkaniowe.
+Ma do~swojej dyspozycji $n$ ekip budowlanych. Z~Urzędu Miasta przychodzi nagła decyzja o~zakazie budowania obiektów wyższych niż $p$ pięter.
+Niestety, jedne budynki mają już o~wiele więcej pięter niż~$p$, inne są niższe niż~$p$.
+%Na~jednym placu budowy mieści się tylko jedna ekipa.
+W~ciągu dnia jedna ekipa może postawić lub zdemontować jedno piętro.
+Napisz funkcję, która przyjmuje tablicę całkowitoliczbowych wysokości budynków i~ich liczbę $n$ (długość tablicy), która jest jednocześnie liczbą ekip oraz liczbę $p$.
+Funkcja ma zwrócić liczbę dni, które upłyną zanim wszystkie budynki będą miały określoną przez~Urząd wysokość~$p$.
+
+
+ \item \textbf{(9 pkt)}
+Napisz funkcję, która przyjmuje jako parametry dwie tablice zmiennoprzecinkowe, ich wspólny rozmiar oraz liczby $\xi$ i~$\zeta$ ($\xi < \zeta$).
+Funkcja ma skopiować z~pierwszej tablicy do~drugiej wszystkie wartości należące do~przedziału domkniętego $[\xi; \zeta]$ oraz zwrócić liczbę skopiowanych elementów.
+Kopiowane liczby mają być umieszczone jedna po~drugiej na~początku drugiej tablicy.
+
+
+ \item \textbf{(9 pkt)}
+Napisz funkcję, która przyjmuje jako parametr tablicę liczb całkowitych dodatnich i~jej rozmiar.
+Funkcja traktuje tablicę jako planszę do~gry składającą się z~pól, którymi są elementy tablicy indeksowane od~0.
+Gra rozpoczyna się na~polu o~numerze~0.
+Funkcja wykonuje ruch przesuwając się o~tyle pól w~prawo, ile zapisane jest w~aktualnym polu.
+Funkcja powinna zwrócić liczbę ruchów, które wykonała aby opuścić planszę.
+
+\end{enumerate}
+
+\textbf{Uwagi}
+
+\begin{itemize}
+ \item W każdym zadaniu (także w tych, w których trzeba napisać tylko funkcję) należy dopisać nagłówki bibliotek, z których korzystamy.
+ \item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+ \item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+ \item Prace nieczytelne nie będą sprawdzane.
+ \item Każde zadanie należy rozwiązać na osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+
+\end{document}

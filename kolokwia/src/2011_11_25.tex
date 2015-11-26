@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb} 
+\usepackage[top=2.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+\pagestyle{empty}
+\title{Kolokwium}
+
+\begin{document}
+\DefineShortVerb{\@}
+\begin{center}
+\Large{Podstawy programowania}\\
+\large{Kolokwium I --- grupa A}\\
+\small{25 listopada 2011}
+\end{center}
+
+\begin{enumerate}
+\item \textbf{(5 pkt)} Napisz program, który wczytuje dwie liczby całkowite $x$ i $y$, i~zwraca jako wartość~$\frac{|x|+|y|}{2}$.
+\item \textbf{(6 pkt)} Napisz program, który pobierze od~użytkownika dwie liczby całkowite $n$ i~$m$
+	(zakładamy, że~$n < m$). Program ma wyświetlić wszytkie liczby z~przedziału domkniętego $[n; m]$,
+	które są podzielne przez~3 lub podzielne przez~5.
+\item \textbf{(7 pkt)} Napisz program, który dopóty będzie wczytywał ze~standardowego wejścia liczby naturalne,
+	dopóki ich suma nie~przekroczy liczby 100. Program na~standardowym wyjściu powinien
+	wyświetlic wartość o~jaką obliczona suma przekroczyła liczbę~100.
+
+\item  \textbf{(7 pkt)}
+Napisz rekurencyjną funkcję, która przyjmuje liczbę całkowitą $n$ i~zwraca wartość $n$-tego wyrazu ciągu zdefiniowanego wzorem:
+$$
+\begin{cases}
+	a_0 & = 0,\\
+	a_1 & = 1,\\
+	a_{2n} & = a_{2n-1} + a_{2n-2},\\
+	a_{2n+1} & = a_{2n} - a_{2n-1}.
+\end{cases}
+$$
+
+\item \textbf{(6 pkt)}
+Napisz funkcję, która na~wejściu otrzyma jedną tablicę z~wartościami całkowitymi
+i~jej rozmiar a~na wyjściu zwróci liczbę elementów których cyfra jedności wynosi~3.
+Przykład:\\
+we: @2 14 3 26 5 34 33 13 65@\\
+wy: @3@
+
+\item \textbf{(9 pkt)}
+Napisz funkcję, która na~wejściu otrzyma 2 tablice z~wartościami rzeczywistymi i~ich rozmiar.
+Funkcja ma wymienić między tablicami elementy o~jednakowych indeksach tak, aby element większy znalazł się w~tablicy pierwszej.
+Przykład:\\
+\vspace{-0.5cm}
+\begin{center}
+\begin{tabular}{r | c | c}
+		& przed zamianą 	& po zamianie\\ \hline
+tablica 1	& @1 5 -1 12  6@ 	& @2 5 -1 12 10@\\
+tablica 2	& @2 4 -6  8 10@ 	& @1 4 -6  8  6@
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+\begin{itemize}
+ \item W każdym zadaniu (także w tych, w których trzeba napisać tylko funkcję) należy dopisać nagłówki bibliotek, z których korzystamy.
+ \item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie trzeba sprawdzać ich poprawności.
+ \item Prace nieczytelne nie będą sprawdzane.
+\end{itemize}
+
+\newpage
+
+\begin{center}
+\Large{Podstawy programowania}\\
+\large{Kolokwium I --- grupa B}\\
+{25 listopada 2011}
+\end{center}
+
+\begin{enumerate}
+\item \textbf{(5 pkt)} Napisz program, który wczytuje dwie liczby całkowite $x$ i $y$, i~zwraca jako wartość~$\frac{|x|+|y|}{2}$.
+\item \textbf{(6 pkt)} Napisz program, który pobierze od~użytkownika dwie liczby całkowite $n$ i~$m$
+	(zakładamy, że~$n < m$). Program ma wyświetlić wszytkie liczby z~przedziału domkniętego $[n; m]$,
+	które są podzielne przez~3 lub podzielne przez~5.
+\item \textbf{(7 pkt)} Napisz program, który dopóty będzie wczytywał ze~standardowego wejścia liczby naturalne,
+	dopóki ich suma nie~przekroczy liczby 100. Program na~standardowym wyjściu powinien
+	wyświetlic wartość o~jaką obliczona suma przekroczyła liczbę~100.
+
+\item  \textbf{(7 pkt)}
+Napisz rekurencyjną funkcję, która przyjmuje liczbę całkowitą $n$ i~zwraca wartość $n$-tego wyrazu ciągu zdefiniowanego wzorem:
+$$
+\begin{cases}
+	a_0 & = 0,\\
+	a_1 & = 1,\\
+	a_{2n} & = a_{2n-1} + a_{2n-2},\\
+	a_{2n+1} & = a_{2n} - a_{2n-1}.
+\end{cases}
+$$
+
+\item \textbf{(6 pkt)}
+Napisz funkcję, która na~wejściu otrzyma jedną tablicę z~wartościami całkowitymi
+i~jej rozmiar a~na wyjściu zwróci liczbę elementów których cyfra jedności wynosi~3.
+Przykład:\\
+we: @2 14 3 26 5 34 33 13 65@\\
+wy: @3@
+
+\item \textbf{(9 pkt)}
+Napisz funkcję, która na~wejściu otrzyma 2 tablice z~wartościami rzeczywistymi i~ich rozmiar.
+Funkcja ma wymienić między tablicami elementy o~jednakowych indeksach tak, aby element większy znalazł się w~tablicy pierwszej.
+Przykład:\\
+\vspace{-0.5cm}
+\begin{center}
+\begin{tabular}{r | c | c}
+		& przed zamianą 	& po zamianie\\ \hline
+tablica 1	& @1 5 -1 12  6@ 	& @2 5 -1 12 10@\\
+tablica 2	& @2 4 -6  8 10@ 	& @1 4 -6  8  6@
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+\begin{itemize}
+ \item W każdym zadaniu (także w tych, w których trzeba napisać tylko funkcję) należy dopisać nagłówki bibliotek, z których korzystamy.
+ \item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie trzeba sprawdzać ich poprawności.
+ \item Prace nieczytelne nie będą sprawdzane.
+
+\end{itemize}
+
+\end{document}
+
