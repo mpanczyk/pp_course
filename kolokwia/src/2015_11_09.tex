@@ -1,0 +1,72 @@
+\documentclass[extrafontsizes,12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.5cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium I}
+\date{9 listopada 2015}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+
+\begin{enumerate}
+\itemsep1em
+
+
+\item \textbf{(10 pkt)}
+Napisz program, który wczyta od~użytkownika 2~liczby całkowite: $x$ oraz~$y$,
+będące współrzędnymi punktu~$P$ na~płaszczyźnie.
+Następnie obliczy i~wyświetli wartość cosinusa kąta,
+którego pierwsze ramię zawiera dodatnią półoś~$OX$,
+a~drugie przechodzi przez punkt $P=(x, y)$.
+Wierzchołkiem kąta jest początek układu współrzędnych.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która jako argument przyjmuje liczbę całkowitą~$x$
+i~zwraca \textbf{liczbę jej cyfr} podzielnych przez~3.
+
+\item \textbf{(10 pkt)}
+Zaimplementuj następującą funkcję rekurencyjną:
+\begin{equation*}
+ N_b = \begin{cases}
+    0 & \mbox{ dla } b = 0, \\
+    6 & \mbox{ dla } b = 1, \\
+    3 + N_{b-1} & \mbox{ dla } b > 1.
+       \end{cases}
+\end{equation*}
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która przyjmuje w~argumencie liczbę naturalną~$n>1$
+i~zwraca
+\begin{itemize}
+  \item 1 jeśli podana liczba jest liczbą pierwszą,
+  \item 0 jeśli podana liczba jest liczbą złożoną.
+\end{itemize}
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+\item W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję) należy dopisać pliki nagłówkowe, z~których korzystamy.
+\item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+\item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+\item Prace nieczytelne nie będą sprawdzane.
+\item Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+\end{document}
