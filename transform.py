@@ -6,11 +6,30 @@ import os
 import markdown
 import re
 
+prepositions = u'a aby bez beze dla do jako\
+                ku między mimo na nad nade niby\
+                o obok od ode około oprócz\
+                po pod podczas pode pomiędzy\
+                pomimo ponad poniżej poprzez\
+                pośród powyżej poza prócz\
+                przed przede przez przeze\
+                przy spod spode spośród spoza\
+                sprzed u w wbrew we wedle\
+                według wewnątrz wobec wokół\
+                wraz wskutek wśród wzdłuż\
+                względem z za ze znad znade zza\
+                oraz i nie np. że'.split()
+
+def insert_nbsp(s):
+  pattern = ur'\s((' + u'|'.join(prepositions) + ur')\s+)'
+  return re.sub(pattern, r' \2&nbsp;',s, flags=re.IGNORECASE)
+
 TEMPLATE_FILE = 'topic.html.template'
 PRE_SUBST = {
 }
 POST_SUBST = {
   '---': '&mdash;',
+  'fun1': insert_nbsp,
 }
 INPUT_FILE = sys.argv[1]
 OUTPUT_FILE = sys.argv[2]
@@ -26,7 +45,10 @@ other_files = u'&nbsp;|&nbsp;'.join(other_files_links)
 
 def apply_subst(text, subst):
   for k, v in subst.items():
-    text = text.replace(k,v)
+    if k.startswith('fun'):
+      text = v(text)
+    else:
+      text = text.replace(k, v)
   return text
 
 with open(TEMPLATE_FILE, 'r') as templateFile:
