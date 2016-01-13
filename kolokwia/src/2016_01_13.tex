@@ -1,0 +1,113 @@
+\documentclass[extrafontsizes,10pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.5cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium II}
+\date{13 stycznia 2016}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+
+\begin{enumerate}
+\itemsep1em
+
+\item \textbf{(5 pkt)}
+Napisz makrodefinicję, która sprawdzi,
+czy podana w~parametrze wartość liczbowa
+jest podzielna przez~10
+i~zwróci wartość~1 jeśli warunek podzielności jest spełniony
+lub~0 w~przeciwnym wypadku.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która jako parametr przyjmie liczbę całkowitą~$n$.
+Funkcja ma zaalokować dynamiczną dwuwymiarową trójkątną tablicę liczb całkowitych,
+wypełnić ją zerami i~zwrócić jej adres.
+Na~przykład dla~$n = 5$ tablica powinna wyglądać następująco:
+\begin{center}
+\begin{BVerbatim}
+0
+0 0
+0 0 0
+0 0 0 0
+0 0 0 0 0
+\end{BVerbatim}
+\end{center}
+Liczba wierszy w trójkątnej tablicy równa jest~$n$,
+natomiast liczba kolumn w~każdym wierszu jest o~1
+większa od~liczby kolumn w~wierszu poprzednim.
+Wiersz ostatni ma liczbę kolumn równą liczbie wierszy, czyli~$n$.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która przyjmie w~parametrze jednowymiarową tablicę
+liczb typu |int| o~rozmiarze $n$ oraz~liczbę całkowitą~$n$.
+Funkcja ma zaalokować tablicę i~zwrócić jej~adres,
+uprzednio zapisując w~niej odwrotności liczb z~przekazanej
+w~parametrze tablicy.
+Odwrotność liczby~$x$ to liczba~$\frac{1}{x}$.
+Zakładamy, że~odwrotnością liczby~0 jest liczba~0.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która przyjmuje rozmiar~$n$
+i~trzy tablice jednowymiarowe
+liczb całkowitych
+(dwie pierwsze mają rozmiar~$n$,
+a~ostatnia rozmiar~$2\cdot n$).
+Funkcja ma podstawić wartości
+z~dwóch pierwszych tablic
+do~trzeciej tablicy według reguły:
+|tab1 = {3, 3, 3} tab2 = {4, 4, 4}| $\rightarrow$ |tab3 = {3, 4, 3, 4, 3, 4}|.
+
+\item \textbf{(15 pkt)}
+Napisz funkcję, która otrzymuje w~parametrach
+dynamicznie alokowaną dwuwymiarową tablicę
+liczb całkowitych oraz~liczbę jej wierszy.
+Wiersze tej~tablicy są różnej długości,
+jednak wiadomo, że~każdy z~nich kończy się liczbą~0.
+Funkcja powinna z~każdego wiersza usunąć liczby
+będące wielokrotnościami liczby znajdującej się
+w~pierwszym polu tego wiersza (łącznie z~nią samą)
+pozostawiając~0 na~końcu.
+Jeżeli wiersz zaczyna się liczbą~0,
+pozostawiany jest bez~zmian.
+Kolejność liczb w~wierszu
+po~tej operacji jest dowolna.
+\begin{center}
+\begin{tabular}{ l l }
+wejście & wyjście \\
+\hline
+3 5 6 8 9 0 & 5 8 0 \\
+1 4 6 0 & 0 \\
+0 & 0 \\
+2 3 4 5 6 7 8 0 & 3 5 7 0
+\end{tabular}
+\end{center}
+
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+\item W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję) należy dopisać pliki nagłówkowe, z~których korzystamy.
+\item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+\item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+\item Prace nieczytelne nie będą sprawdzane.
+\item Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+\end{document}
