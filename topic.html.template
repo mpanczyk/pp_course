@@ -3,9 +3,11 @@
 <head>
   <meta charset='utf-8'>
   <title>%(title)s</title>
+  <link href="../cssjs/main.css" rel="stylesheet" />
   <link href="../cssjs/style.css" media="screen" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.5/webcomponents-lite.min.js"></script>
   <link rel="stylesheet" href="../cssjs/tty-player.min.css">
+  <link rel="stylesheet" media="screen" href="../cssjs/code.css">
   <script src="../cssjs/term.min.js"></script>
   <script src="../cssjs/tty-player.min.js"></script>
 </head>

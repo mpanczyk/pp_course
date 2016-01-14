@@ -4,7 +4,12 @@
 import sys
 import os
 import markdown
+import pygments.lexers
 import re
+
+def get_c_lexer(*args, **kwargs):
+  return pygments.lexers.get_lexer_by_name('c')
+pygments.lexers.guess_lexer = get_c_lexer
 
 prepositions = u'a aby bez beze dla do jako\
                 ku między mimo na nad nade niby\
@@ -58,7 +63,9 @@ with open(INPUT_FILE, 'r') as inputFile:
 
 title = "%d: %s" %(NUM, inputStr.split('\n')[0])
 inputStr = apply_subst(inputStr, PRE_SUBST)
-innerHtml = markdown.markdown(inputStr, output_format='xhtml5')
+md_extensions = ['markdown.extensions.codehilite']
+md = markdown.Markdown(output_format='html5', extensions=md_extensions)
+innerHtml = md.convert(inputStr)
 innerHtml = apply_subst(innerHtml, POST_SUBST)
 outputStr = template % {
   'content': innerHtml,
