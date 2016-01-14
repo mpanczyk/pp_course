@@ -1,0 +1,10 @@
+30.34,65149,Zamość
+147.5,326464,Lublin
+517.24,1735442,Warszawa
+116.32,186770,Rzeszów
+29.12,5294,Szczebrzeszyn
+124.5,174291,Bielsko Biała
+327,759131,Kraków
+23.07,19434,Krasnystaw
+58.32,119182,Zielona Góra
+109.2,84306,Jelenia Góra
