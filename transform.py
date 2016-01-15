@@ -63,7 +63,10 @@ with open(INPUT_FILE, 'r') as inputFile:
 
 title = "%d: %s" %(NUM, inputStr.split('\n')[0])
 inputStr = apply_subst(inputStr, PRE_SUBST)
-md_extensions = ['markdown.extensions.codehilite']
+md_extensions = [
+  'markdown.extensions.codehilite',
+  'markdown.extensions.attr_list',
+]
 md = markdown.Markdown(output_format='html5', extensions=md_extensions)
 innerHtml = md.convert(inputStr)
 innerHtml = apply_subst(innerHtml, POST_SUBST)
