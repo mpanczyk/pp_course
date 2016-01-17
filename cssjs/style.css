@@ -13,7 +13,7 @@ body {
 
 p {
   text-align: justify;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   margin-top: 20px;
 }
 
@@ -75,8 +75,8 @@ thead {
   font-weight: bold;
 }
 
-.hint {
-  display: block;
+p.hint {
+  display: table-cell;
   background: url(../cssjs/hint.svg) 50px 50px no-repeat, #ccffcc;
   background-size: 50px 50px;
   background-position: 5px 5px;
@@ -84,5 +84,7 @@ thead {
   padding-left: 60px;
   border: 1px solid #909090;
   border-radius: 7px;
-  min-height: 50px;
+  height: 50px;
+  width: 600px;
+  vertical-align: middle;
 }
