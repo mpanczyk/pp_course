@@ -78,3 +78,7 @@ p.hint {
   width: 600px;
   vertical-align: middle;
 }
+
+p.centered {
+  text-align: center;
+}
