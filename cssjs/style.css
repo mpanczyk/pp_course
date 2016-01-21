@@ -19,10 +19,7 @@ p {
 
 code {
   background-color: #FFFFFF;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-radius: 7px;
   color: #208F20;
   font-family: Courier, monospace !important;
   line-height: 18px;
@@ -46,10 +43,7 @@ div.codehilite {
   padding: 1px;
   margin-top: 10px;
   background-color: #ececec;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-radius: 7px;
   margin-bottom: 1em;
   overflow: auto;
   border: 1px solid #aaaaaa;
@@ -65,10 +59,7 @@ div.codehilite pre {
 }
 
 td {
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 5px;
 }
 
 thead {
@@ -80,8 +71,7 @@ p.hint {
   background: url(../cssjs/hint.svg) 50px 50px no-repeat, #ccffcc;
   background-size: 50px 50px;
   background-position: 5px 5px;
-  padding: 5px;
-  padding-left: 60px;
+  padding: 5px 5px 5px 60px;
   border: 1px solid #909090;
   border-radius: 7px;
   height: 50px;
