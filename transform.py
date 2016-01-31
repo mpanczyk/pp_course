@@ -1,33 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
-import os
+from sys import argv
+from os.path import isfile
 import markdown
-import pygments.lexers
 import re
 
-def get_c_lexer(*args, **kwargs):
-  return pygments.lexers.get_lexer_by_name('c')
-pygments.lexers.guess_lexer = get_c_lexer
-
-prepositions = u'a aby bez beze dla do jako\
-                ku między mimo na nad nade niby\
-                o obok od ode około oprócz\
-                po pod podczas pode pomiędzy\
-                pomimo ponad poniżej poprzez\
-                pośród powyżej poza prócz\
-                przed przede przez przeze\
-                przy spod spode spośród spoza\
-                sprzed u w wbrew we wedle\
-                według wewnątrz wobec wokół\
-                wraz wskutek wśród wzdłuż\
-                względem z za ze znad znade zza\
-                oraz i nie np. że'.split()
-
-def insert_nbsp(s):
-  pattern = ur'\s((' + u'|'.join(prepositions) + ur')\s+)'
-  return re.sub(pattern, r' \2&nbsp;',s, flags=re.IGNORECASE)
+from nbsp import insert_nbsp
+from configure_highlighter import make_default_c_lexer
+make_default_c_lexer()
 
 TEMPLATE_FILE = 'topic.html.template'
 PRE_SUBST = {
@@ -36,17 +17,14 @@ POST_SUBST = {
   '---': '&mdash;',
   'fun1': insert_nbsp,
 }
-INPUT_FILE = sys.argv[1]
-OUTPUT_FILE = sys.argv[2]
+INPUT_FILE = argv[1]
+OUTPUT_FILE = argv[2]
 NUM = int(re.search(r'(\d+)\.md', INPUT_FILE).groups()[0])
+MD_EXTENSIONS = [
+  'markdown.extensions.codehilite',
+  'markdown.extensions.attr_list',
+]
 
-other_files_links = []
-if os.path.isfile( 'topics/%d.md' % (NUM-1) ):
-  other_files_links.append( u'<a href="%d.html">poprzedni temat</a>' % (NUM-1) )
-other_files_links.append(u'<a href="../">w górę</a>')
-if os.path.isfile( 'topics/%d.md' % (NUM+1) ):
-  other_files_links.append( u'<a href="%d.html">następny temat</a>' % (NUM+1) )
-other_files = u'&nbsp;|&nbsp;'.join(other_files_links)
 
 def apply_subst(text, subst):
   for k, v in subst.items():
@@ -56,26 +34,51 @@ def apply_subst(text, subst):
       text = text.replace(k, v)
   return text
 
-with open(TEMPLATE_FILE, 'r') as templateFile:
-  template = templateFile.read().decode('utf-8')
-with open(INPUT_FILE, 'r') as inputFile:
-  inputStr = inputFile.read().decode('utf-8')
 
-title = "%d: %s" %(NUM, inputStr.split('\n')[0])
-inputStr = apply_subst(inputStr, PRE_SUBST)
-md_extensions = [
-  'markdown.extensions.codehilite',
-  'markdown.extensions.attr_list',
-]
-md = markdown.Markdown(output_format='html5', extensions=md_extensions)
-innerHtml = md.convert(inputStr)
-innerHtml = apply_subst(innerHtml, POST_SUBST)
-outputStr = template % {
-  'content': innerHtml,
-  'original_doc': INPUT_FILE,
-  'title': title,
-  'other_files': other_files,
-}
+def read_unicode_from_file(filename):
+  with open(filename, 'r') as f:
+    return f.read().decode('utf-8')
 
-with open(OUTPUT_FILE, 'w') as outputFile:
-  outputFile.write( outputStr.encode('utf-8') )
+
+def get_navigation_links():
+  # These are used on top and bottom of the page.
+  other_files_links = []
+  if isfile( 'topics/%d.md' % (NUM-1) ):
+    # It is not the first topic.
+    other_files_links.append( u'<a href="%d.html">poprzedni temat</a>' % (NUM-1) )
+  other_files_links.append(u'<a href="../">w górę</a>')
+  if isfile( 'topics/%d.md' % (NUM+1) ):
+    # It is not the last topic.
+    other_files_links.append( u'<a href="%d.html">następny temat</a>' % (NUM+1) )
+  return u' | '.join(other_files_links)
+
+
+def get_fill_dict():
+  inputStr = read_unicode_from_file(INPUT_FILE)
+  title = "%d: %s" %(NUM, inputStr.split('\n')[0])
+  inputStr = apply_subst(inputStr, PRE_SUBST)
+
+  md = markdown.Markdown(
+    output_format='html5',
+    extensions=MD_EXTENSIONS,
+  )
+  innerHtml = md.convert(inputStr)
+
+  innerHtml = apply_subst(innerHtml, POST_SUBST)
+
+  return {
+    'content': innerHtml,
+    'title': title,
+    'other_files': get_navigation_links(),
+  }
+
+
+def main():
+  template = read_unicode_from_file(TEMPLATE_FILE)
+  output = template % get_fill_dict()
+  with open(OUTPUT_FILE, 'w') as outputFile:
+    outputFile.write( output.encode('utf-8') )
+
+
+if __name__ == '__main__':
+  main()
