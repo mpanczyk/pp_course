@@ -1,0 +1,92 @@
+\documentclass[extrafontsizes,12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=1.5cm,right=1.5cm,top=2cm,bottom=1cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium poprawkowe}
+\date{23 lutego 2016}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+
+\begin{enumerate}
+\itemsep4pt
+
+\item \textbf{(20 pkt)}
+Napisz funkcję, która dostaje jako parametr dynamiczną
+dwuwymiarową tablicę liczb całkowitych i~jej wymiary $n$, $m$.
+Funkcja ma zwrócić~1, jeśli na~brzegach
+(tzn.~w~pierwszym i~ostatnim wierszu oraz~w~pierwszej
+i~ostatniej kolumnie) tablicy występują wartości tylko niezerowe;
+w~przeciwnym razie funkcja ma zwrócić~0. 
+
+\item \textbf{(20 pkt)}
+Napisz program składający się z~funkcji |main|
+oraz~co~najmniej jednej funkcji pomocniczej.
+Program w~funkcji main ma wczytać od~użytkownika liczbę całkowitą~$n$ oraz~$x$
+a~następnie zaalokować dynamiczną tablicę liczb całkowitych
+o~rozmiarze~$n$ elementów i~wczytać do~niej $n$~wartości.
+Następnie ma być wywołana funkcja,
+która przyjmuje jako parametry liczbę~$n$, $x$
+oraz~wypełnioną już wartościami wspomnianą wcześniej tablicę.
+Funkcja ma zwrócić sumę kwadratów liczb z~tablicy,
+które nie~są wielokrotnościami liczby~$x$.
+Zwrócona wartość ma być wypisana przez~funkcję |main| na~standardowe wyjście.
+Nie~zapomnij zwolnić pamięci zajmowanej przez~tablicę.
+
+\item \textbf{(30 pkt)}
+Zdefiniuj strukturę planeta, posiadającą:
+numer planety (liczba całkowita),
+nazwa planety (napis 50-literowy),
+promień planety (liczba zmiennoprzecinkowa).
+Napisz funkcję przyjmującą tablicę planet
+oraz~jej rozmiar.
+Funkcja ma zwrócić planetę (całą strukturę)
+o~największej objętości ($V = \frac{4}{3} \cdot \pi \cdot r^3$).
+Okazuje się jednak, że~planety o~numerach nieparzystych
+nie są idealnymi kulami, dlatego w~ich przypadku
+objętość należy pomniejszyć o~10\%
+w~stosunku do~wyniku uzyskanego ze~wzoru.
+
+\item \textbf{(30 pkt)}
+Napisz funkcję przyjmującą napis i~zwracającą liczbę par znaków
+(parą nazywamy dwa sąsiadujące jednakowe znaki lub~litery
+bez~względu na~ich wielkość).
+Przykład:
+\begin{center}
+\begin{tabular}{ r c l }
+wejście & & wyjście \\
+\hline
+1337 & $\rightarrow$ & 1 \\
+bbaaac & $\rightarrow$ & 3 \\
+AabBb & $\rightarrow$ & 3 \\
+\end{tabular}
+\end{center}
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+\item W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję) należy dopisać pliki nagłówkowe, z~których korzystamy.
+\item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+\item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+\item Prace nieczytelne nie będą sprawdzane.
+\item Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+\end{document}
