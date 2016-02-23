@@ -1,0 +1,116 @@
+\documentclass[extrafontsizes,10pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb} 
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+\posttitle{\par\end{center}\vspace{-1em}}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.0cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium II}
+\date{28 stycznia 2015}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+\begin{enumerate}
+\itemsep1em
+
+
+\item \textbf{(5 pkt)}
+Napisz funkcję, która otrzymuje jako argumenty dwie liczby całkowite $n$ oraz $m$,
+a następnie rezerwuje pamięć dla pojedynczej zmiennej typu całkowitego
+oraz przypisuje jej sumę wartości otrzymanych argumentów i zwraca wskaźnik do niej.
+
+
+\item \textbf{(7 pkt)}
+Napisz makro $MIN6(a,b,c,d,e,f)$, korzystające z makra MIN2(x,y)
+w celu zwrócenia najmniejszej z 6 liczb.
+(Oznacza to, że makro $MIN6()$ może w swojej
+definicji wywoływać makro $MIN2()$ dowolną ilość razy.)
+
+
+\item \textbf{(11 pkt)}
+Napisz funkcję, która przyjmuje wskaźniki do 3 tablic
+liczb całkowitych $tab1$, $tab2$, $tab3$
+oraz jeden argument będący długością tablic
+(wszystkie tablice mają tę samą długość).
+Funkcja ma za zadanie zaalokować nową tablicę $tab4$
+tej samej długości, do której pod $i$-tym indeksem
+ma wpisać liczbę kryjącą się pod tym samym indeksem
+z $tab2$ lub $tab3$ w zależności od wartości znajdującej się
+pod $i$-tym indeksem w tablicy $tab1$.
+Jeśli w $tab1$ wartość jest większa lub równa $0$,
+to ma wybrać wartość z $tab2$, w przeciwnym razie
+z $tab3$. \underline{Przykład:} \\
+
+\textbf{WE:} $tab4$: \{-1, 0, 3, -4, 10\}, $tab2$: \{1, 2, 3, 4, 5\}, $tab3$: \{10, 11, 12, 13, 14\}\\
+\textbf{WY:} $tab4$: \{10, 2, 3, 13, 5\}
+
+
+\item \textbf{(12 pkt)}
+W celu zaoszczędzenia ilości znaków w krótkich
+wiadomościach tekstowych (SMS) nie pisze się spacji,
+a każdy wyraz rozpoczyna się z dużej litery.
+Napisz funkcję, która jako argument otrzymuje wskaźniki
+na dwie zaalokowane tablice: $napis$ (tekst oryginalny)
+oraz $sms$ (wynikowy napis, który ma być zmodyfikowany
+zgodnie z powyższym trendem).
+Zakładamy, że między wyrazami są tylko pojedyncze spacje,
+a po każdej spacji zaczyna się wyraz.
+\underline{Podpowiedź:} kody ASCII wynoszą odpowiednio
+(a-z: 97-122, A-Z: 65-90, spacja-32).
+\underline{Przykład:} \\
+
+\textbf{WE:} $napis$: ''It is not a bug, it is a feature'' \\
+\textbf{WY:} $sms$: ''ItIsNotABug,ItIsAFeature'' \\
+
+\item \textbf{(15 pkt)}
+Zdefiniuj strukturę o nazwie $STUDENT$, która zawiera 2 pola:
+dynamicznie zaalokowaną jednowymiarową tablicę elementów typu
+int przechowującą oceny danego studenta - $oceny$
+(tablica jest reprezentowana przez wskaźnik)
+oraz liczbę całkowitą $ilosc$, wskazującą ilość ocen danego studenta.
+Napisz funkcję, która dostaje 2 argumenty:
+tablicę struktur $STUDENT$ o nazwie $tab$
+oraz liczbę całkowitą $n$ wskazującą na ilość studentów.
+Tablica $tab$ przechowuje dane o ocenach $n$-kandydatów na studia.
+Indeksy elementów tablicy $tab$ są jednocześnie numerami kandydatów.
+Na studia przyjmowane są osoby, których średnia ocen jest
+większa lub równa $4.0$.
+Funkcja powinna wyświetlić listę osób przyjętych na studia
+(numer kandydata oraz średnią jego ocen).
+\underline{Przykład:} \\
+
+\textbf{WE:} $n$: 3, $tab[0]$: { {ilosc: 2, oceny: [3, 4]}, $tab[1]$: {ilosc: 4, oceny: [3, 4, 5, 4]},  $tab[2]$:
+{ilosc: 1, oceny: [5]}},  \\
+\textbf{WY:} 1 - 4.0, 2 - 5.0  
+
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+ \item W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję) należy dopisać pliki nagłówkowe, z~których korzystamy.
+ \item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+ \item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+ \item Prace nieczytelne nie będą sprawdzane.
+ \item Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+
+\end{document}

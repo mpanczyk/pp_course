@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb} 
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=2.3cm,right=2.3cm,top=1.3cm,bottom=3cm]{geometry}
+\sloppy
+
+\title{Kolokwium II\\grupa A}
+\date{22 stycznia 2010}
+
+\begin{document}
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+\begin{enumerate}
+
+
+\item \textbf{(6 pkt)}
+Napisz makrodefinicję preprocesora,
+której zastosowanie z~nazwą dowolnego
+typu jako argumentem spowoduje wypisanie
+nazwy typu a~po niej rozmiaru typu (w~bajtach).
+Przykładowe użycie: |PRINT_SIZE(char)|
+powinno spowodować wypisanie na~ekranie np.:
+,,Typ char zajmuje 1B''.
+
+\item \textbf{(6 pkt)}
+Napisz funkcję |double abs_diff(const double *a, const double *b)|,
+która zwraca wartość bezwzględną różnicy
+wartości wskazywanych przez parametry wejściowe |a| i |b|.
+
+\item \textbf{(11 pkt)}
+Napisz funkcję, która dostaje jako argumenty
+dwie dwuwymiarowe tablice tablic o~elementach
+typu char oraz ich wymiary
+i~zwraca jako wartość 1
+jeżeli elementy obu tablic tworzą identyczne
+zbiory wartości (wartość $x$ występuje
+w pierwszej tablicy wtedy i~tylko wtedy
+gdy występuje w~drugiej)
+i~0 w~przeciwnym wypadku.
+
+\item \textbf{(9 pkt)}
+Napisz funkcję, która otrzymuje jako argument
+napis, będący ścieżką do~pliku
+i~zwraca liczbę słów
+(ciągów znaków rozdzielonych białymi znakami)
+zawartych w~pliku o~podanej nazwie.
+
+\item \textbf{(8 pkt)}
+Napisz funkcję, która otrzymuje jako argumenty
+dwa napisy i~przepisuje pierwszy do~drugiego od~końca.
+Zakładamy, że~pierwszy napis zmieści się w~drugim.
+Nie jest dozwolone użycie funkcji bibliotecznych.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która porównuje dwie listy
+bez~głowy o~elementach typu:
+\begin{verbatim}
+struct element {
+  int x;
+  struct element * next;
+};
+\end{verbatim}
+i~zwraca 1 jeżeli obie listy są równe
+(odpowiadające sobie elementy mają
+te same wartości pola |x|)
+oraz 0 w~przeciwnym razie.
+
+\end{enumerate}
+
+\vspace{1cm}
+\textbf{Uwagi}
+\begin{itemize}
+  \item W każdym zadaniu należy dopisać tylko te nagłówki bibliotek, z których korzystamy.
+  \item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki,
+        więc nie~trzeba sprawdzać ich poprawności.
+  \item Prace nieczytelne nie będą sprawdzane.
+\end{itemize}
+
+\end{document}
