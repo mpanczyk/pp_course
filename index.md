@@ -20,15 +20,6 @@ Literatura
 
 [Sylabus](http://syjon.umcs.lublin.pl/metacortex/show/1/16795) przedmiotu.
 
-Konsultacje
-------------------
-
-  * czwartki, godz. 13:00-15:00
-  * piątki, godz. 9:00-11:00
-
-Pokój 522 na V piętrze.  
-Proszę o wcześniejszą wiadomość e-mail (mjpanczyk na gmail.com).
-
 Notka
 ------------------
 Jeśli znalazłeś na tej stronie błąd, nieścisłość
