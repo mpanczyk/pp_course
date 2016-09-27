@@ -1,4 +1,4 @@
-Podstawy programowania 2015/2016
+Podstawy programowania 2016/2017
 ==================
 
 Tematy
