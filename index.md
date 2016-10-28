@@ -1,4 +1,4 @@
-Podstawy programowania 2016/2017
+[..](../)/Podstawy programowania 2016/2017
 ==================
 
 Tematy
