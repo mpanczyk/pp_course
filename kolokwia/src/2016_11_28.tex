@@ -1,0 +1,91 @@
+\documentclass[extrafontsizes,12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+\usepackage{relsize}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.5cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- kolokwium I}
+\date{28 listopada 2016}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+
+\begin{enumerate}
+\itemsep1em
+
+
+\item \textbf{(10 pkt)}
+Napisz program, który wczyta od~użytkownika jego wzrost~$h$ (w~$m$) oraz~masę~$m$ (w~$kg$).
+Program ma obliczyć indeks masy ciała ($BMI$) według wzoru: $BMI = m / h ^ 2$.
+Program ma wypisać wynik na~ekranie,
+a~następnie wyświetlić informację o~wadze ciała użytkownika według reguły:
+
+Dla $BMI \le 18.5$ program ma wyświetlić komunikat ,,niedowaga'',\\
+Dla $18.5 < BMI \le 25$ program ma wyświetlić komunikat ,,prawidłowa waga'',\\
+Dla $25 < BMI \le 30$ program ma wyświetlić komunikat ,,lekka nadwaga'',\\
+Dla $30 < BMI$ program ma wyświetlić komunikat ,,nadwaga''.
+
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która przyjmuje jako parametry współrzędne trzech punktów:
+$A = (x_A, y_A)$, $B = (x_B, y_B)$, $C = (x_C, y_C)$.
+Punkty te tworzą trójkąt.
+Funkcja ma zwrócić wartość proporcji najkrótszego boku do~najdłuższego boku trójkąta.
+
+
+\item \textbf{(10 pkt)}
+Napisz rekurencyjną funkcję obliczającą $n$-ty wyraz ciągu według podanego niżej wzoru.
+\begin{equation*}
+a(n) =
+	\begin{cases}
+		n  & \mbox{ dla } n < 6,\\
+		\mathlarger{\sum_{i=1}^{3}} a(n-2i) & \mbox{ dla } n \ge{} 6.
+	\end{cases}
+\end{equation*}
+
+
+\item \textbf{(10 pkt)}
+Napisz program, który wczytuje liczbę dodatnią $n$,
+a następnie wczytuje $n$~liczb,
+których możliwe wartości to 0 oraz 1.
+Potraktuj otrzymany ciąg zer i~jedynek jak liczbę zapisaną
+w~systemie dwójkowym podaną od~najstarszego bitu.
+Wyświetl tę liczbę w~systemie dziesiętnym.
+
+Przykład:
+\begin{center}
+  \begin{tabular}{ l l }
+  wejście & wyjście \\
+  \hline
+  |5| & |22| \\
+  |1 0 1 1 0|
+  \end{tabular}
+\end{center}
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+\item W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję) należy dopisać pliki nagłówkowe, z~których korzystamy.
+\item Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+\item Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki, więc nie~trzeba sprawdzać ich poprawności.
+\item Prace nieczytelne nie będą sprawdzane.
+\item Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce. Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+\end{document}
