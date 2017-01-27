@@ -1,0 +1,134 @@
+\documentclass[extrafontsizes,10pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.0cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- Kolokwium II}
+\date{23 stycznia 2017}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+\begin{enumerate}
+\itemsep1em
+
+\item \textbf{(5 pkt)}
+Napisz funkcję, która przyjmuje jako parametry
+2 wskaźniki na~liczby rzeczywiste
+i~oblicza podłogę z~iloczynu wartości,
+na~które wskazują te wskaźniki.
+Funkcja ma zwrócić wskaźnik
+na~zmienną całkowitą przechowującą
+tak otrzymaną wartość.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która dla~podanego
+parametrze łańcucha zwróci łańcuch,
+w~którym litery z~alfabetu łacińskiego
+zostaną zamienione:
+duża na~małą zawsze,
+a~mała na~dużą tylko wtedy,
+gdy była na~początku wyrazu,
+np. dla~łańcucha ,,Dark Side of the Moon''
+zwrócony zostanie łańcuch
+,,dark side Of The moon''.
+Załóż, że~pierwsza litera wyrazu
+znajduje się albo po~spacji,
+albo na~początku łańcucha.
+W~rozwiązaniu nie należy używać
+funkcji z~biblioteki |string.h|.
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która jako parametry
+otrzymuje dynamiczną 2-wymiarową
+tablicę liczb zmiennoprzecinkowych
+|tab| oraz~jej wymiary: |n| i~|m|.
+Funkcja ma za~zadanie obliczyć i~zwrócić
+sumę elementów znajdujących się
+na~brzegach tablicy
+(w~pierwszym i~ostatnim wierszu
+oraz~w~pierwszej i~ostatniej kolumnie).
+Dla~przykładowej tablicy:
+$$tab =
+\left[
+  \begin{tabular}{cccc}
+  1.0 2.0 3.0 4.0 5.0 \\
+6.0 0.0 4.0 3.0 1.0 \\
+7.0 3.0 4.0 6.0 2.0 \\
+8.0 9.0 3.0 4.0 3.0 \\
+  \end{tabular}
+\right]
+$$
+\noindent prawidłową odpowiedzią będzie 58.0.
+
+
+\item \textbf{(10 pkt)}
+Napisz funkcję, która pobiera
+jako parametry dynamiczną 2-wymiarową
+tablicę liczb całkowitych |tab1|
+oraz~jej wymiary: |n| i~|m|.
+Funkcja ma dynamicznie przydzielić
+pamięć na~tablicę |tab2|,
+która ma mieć identyczne wymiary,
+jak tablica |tab1|.
+Następnie funkcja ma przepisać dane z~tablicy
+|tab1| do~|tab2| w~taki sposób,
+iż jeśli w~|tab1| pod indeksem
+($i$,~$j$) znajduje się liczba nieparzysta,
+wówczas w~tablicy |tab2| pod~indeksem
+($i$, $j$) ma znaleźć się liczba
+o~1 większa, natomiast jeśli jest parzysta,
+ma zostać pomnożona przez~3
+i~zapisana do~tablicy |tab2|.
+Funkcja ma zwrócić wskaźnik
+do~utworzonej tablicy |tab2|.
+
+\item \textbf{(15 pkt)}
+Napisz funkcję, która przyjmuje
+jako parametry dynamiczną jednowymiarową
+tablicę liczb całkowitych |tab|
+oraz~jej rozmiar: |n|.
+Funkcja ma zwrócić:
+\begin{itemize}
+\item
+  1, jeśli każdy element tej tablicy
+  o~wartości $k$ występuje w~niej
+  dokładnie $k$ razy,
+\item 0 w~przeciwnym przypadku.
+\end{itemize}
+\noindent Przetestuj napisaną funkcję w programie głównym.
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+ \item W~każdym zadaniu (także w~tych,
+       w~których trzeba napisać tylko funkcję)
+       należy dopisać pliki nagłówkowe,
+       z~których korzystamy.
+ \item Rozwiązanie każdego zadania może zawierać
+       dowolną liczbę funkcji pomocniczych.
+ \item Zakładamy, że dane wejściowe spełniają
+       określone w~treści zadania warunki,
+       więc nie~trzeba sprawdzać ich poprawności.
+ \item Prace nieczytelne nie będą sprawdzane.
+ \item Każde zadanie należy rozwiązać na~osobnej,
+       podpisanej kartce.
+       Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+
+\end{document}
