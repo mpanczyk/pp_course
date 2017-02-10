@@ -1,0 +1,111 @@
+\documentclass[extrafontsizes,10pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+\posttitle{\par\end{center}\vspace{-1em}}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=1.0cm,bottom=2cm]{geometry}
+\sloppy
+
+\title{Podstawy Programowania --- Kolokwium III}
+\date{10 lutego 2017}
+
+\begin{document}
+
+\maketitle
+\DefineShortVerb{\|}
+\thispagestyle{empty}
+\begin{enumerate}
+\itemsep1em
+
+\item \textbf{(15 pkt)}
+Zdefiniuj strukturę |Deltoid|, która przechowuje długości przekątnych deltoidu.
+Napisz funkcję, która przyjmuje jako parametr zmienną typu |Deltoid|
+i~zwraca pole tak przekazanej figury.
+Pole deltoidu to połowa iloczynu długości przekątnych.
+
+\item \textbf{(15 pkt)}
+Napisz funkcję, która przyjmuje jako parametry dynamiczną tablicę
+dwuwymiarową liczb rzeczywistych oraz~dwie liczby całkowite |n| i~|m|,
+które są wymiarami tej tablicy.
+Funkcja ma zwrócić wskaźnik na~nowoutworzoną dynamiczną tablicę,
+która przechowuje macierz transponowaną do~macierzy
+przechowywanej w~przekazanej parametrem tablicy.
+
+\item \textbf{(20 pkt)}
+Napisz funkcję, która dla~podanej jako parametr tablicy liczb typu |int|
+oraz~jej rozmiaru~|n|, zwróci wskaźnik na~kopię wartości największej
+nieparzystej i~podzielnej przez~3 wartości z~tej tablicy.
+Jeśli takiej wartości nie ma, funkcja powinna zwrócić |NULL|.
+Uwaga! W~celu określenia, czy wartość jest nieparzysta i~podzielna przez~3,
+należy napisać makro |NPARZ3(x)|, przyjmujące wartość~1, jeśli liczba spełnia
+warunki i~0, jeśli ich nie~spełnia.
+
+\noindent
+Przykład:
+Dla~tablicy \{0, 3, 2, 15, 6, 1, 7, 9, 20, 22, 25\} funkcja powinna zwrócić wskaźnik
+na~kopię wartości 15.
+
+\item \textbf{(25 pkt)}
+Szeherezada każdego dnia spisywała opowieści, którymi się dzieliła
+poprzedniej nocy z~sułtanem.
+Gdy~już minęły wszystkie noce, a~sułtan darował jej życie,
+postanowiła poukładać je w~odpowiednim porządku.
+Niestety jest ich tak wiele, że~warto byłoby jej pomóc.
+Napisz funkcję, która dla~podanej jako parametr
+tablicy napisów i~rozmiaru tej tablicy w~drugim parametrze,
+zwróci tablicę napisów, w~których ostatnie zdanie,
+poprzedzone spacją, będzie kopią pierwszego zdania z~następnego łańcucha.
+Zdanie to, wraz z~następującą po~nim spacją, należy usunąć z~następnego łańcucha.
+Usunięcie pierwszego zdania nie dotyczy pierwszego napisu w~tablicy,
+zaś dołączenie ostatniego nie dotyczy ostatniego elementu tablicy.
+Uznaj, że~zdanie to sekwencja znaków zakończona kropką.
+
+\noindent
+Przykład:
+Dla~tablicy: 
+\{''Ala ma kota. Kot ma Asa. As ma w głowie pstro.'',
+''Ala lubi psa. Beata lubi kota. Kot lubi Alę.'',
+''Beata lubi Alę. Czesława to babcia Beaty.''\}
+zostanie zwrócona tablica
+\{''Ala ma kota. Kot ma Asa. As ma w~głowie pstro. Ala lubi psa.'',
+''Beata lubi kota. Kot lubi Alę. Beata lubi Alę.'',
+''Czesława to babcia Beaty.''\}
+
+
+\item \textbf{(25 pkt)}
+Napisz funkcję, która w parametrach dostaje tablicę struktur |Student|
+o~nazwie |tab| oraz~liczbę jej elementów~|n|.
+Struktura składa się z~trzech pól: dynamicznej tablicy liczb zmiennoprzecinkowych
+o~nazwie |oceny|, liczby ocen~|m| oraz~napisu, będącego nazwiskiem studenta.
+Funkcja ma zwrócić nazwisko studenta z~najwyższą średnią ocen.
+
+\end{enumerate}
+
+\vfill
+
+\textbf{Uwagi}
+
+\begin{itemize}
+ \item  W~każdym zadaniu (także w~tych, w~których trzeba napisać tylko funkcję)
+        należy dopisać pliki nagłówkowe, z~których korzystamy.
+ \item  Rozwiązanie każdego zadania może zawierać dowolną liczbę funkcji pomocniczych.
+ \item  Zakładamy, że dane wejściowe spełniają określone w treści zadania warunki,
+        więc nie~trzeba sprawdzać ich poprawności.
+ \item  Prace nieczytelne nie będą sprawdzane.
+ \item  Każde zadanie należy rozwiązać na~osobnej, podpisanej kartce.
+        Wszystkie kartki (nawet puste) należy oddać.
+\end{itemize}
+
+\end{document}
+
